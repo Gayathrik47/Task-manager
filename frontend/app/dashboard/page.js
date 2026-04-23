@@ -69,7 +69,7 @@ export default function Dashboard() {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "http://localhost:5000/tasks",
+        "https://task-manager-backend-yw8r.onrender.com/tasks",
         { title, description, priority, dueDate },
         { headers: { Authorization: token } }
       );
@@ -87,7 +87,7 @@ export default function Dashboard() {
   const deleteTask = async (id) => {
     const token = localStorage.getItem("token");
 
-    await axios.delete(`http://localhost:5000/tasks/${id}`, {
+    await axios.delete(`https://task-manager-backend-yw8r.onrender.com/tasks/${id}`, {
       headers: { Authorization: token }
     });
 
@@ -99,7 +99,7 @@ export default function Dashboard() {
     const token = localStorage.getItem("token");
 
     await axios.put(
-      `http://localhost:5000/tasks/${id}`,
+      `https://task-manager-backend-yw8r.onrender.com/tasks/${id}`,
       { status: "done" },
       { headers: { Authorization: token } }
     );
