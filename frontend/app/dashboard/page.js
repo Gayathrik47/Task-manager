@@ -17,7 +17,7 @@ export default function Dashboard() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get("http://localhost:5000/tasks", {
+      const res = await axios.get("https://task-manager-backend-yw8r.onrender.com/tasks", {
         headers: { Authorization: token }
       });
 
@@ -195,7 +195,7 @@ export default function Dashboard() {
                   : "No date"}
               </p>
 
-              {/* 🔥 Countdown */}
+              {/*  Countdown */}
               {t.dueDate && (
                 <p style={{ fontSize: "12px", color: "red" }}>
                   {(() => {

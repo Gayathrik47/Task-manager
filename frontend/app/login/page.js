@@ -11,7 +11,7 @@ export default function Login() {
 
   const router = useRouter();
 
-  // ✅ Redirect if already logged in
+  // Redirect if already logged in
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -22,7 +22,7 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/auth/login", {
+      const res = await axios.post("https://task-manager-backend-yw8r.onrender.com/auth/login", {
         email,
         password
       });
@@ -34,12 +34,12 @@ export default function Login() {
 
       setMessage("Login successful");
 
-      // ✅ FIX: use router instead of window
+      // FIX: use router instead of window
       setTimeout(() => {
         router.push("/dashboard");
       }, 800);
 
-    } catch {
+    } catch (err) {
       setMessage("Invalid credentials");
     }
   };

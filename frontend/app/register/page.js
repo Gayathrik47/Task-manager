@@ -9,34 +9,34 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  // 🔐 Password check function
+  // Password check function
   const isStrongPassword = (password) => {
     return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{6,}$/.test(password);
   };
 
   const handleRegister = async () => {
-    // ❌ check password strength
+    //  check password strength
     if (!isStrongPassword(password)) {
       setMessage("Weak password ❌ (Use Aa1@...)");
       return;
     }
 
     try {
-      await axios.post("http://localhost:5000/auth/register", {
+      await axios.post("https://task-manager-backend-yw8r.onrender.com/auth/register", {
         name,
         email,
         password
       });
 
-      setMessage("Registered successfully 😤");
+      setMessage("Registered successfully ");
 
       // redirect after success
       setTimeout(() => {
         window.location.href = "/login";
       }, 1000);
 
-    } catch {
-      setMessage("Registration failed 😭");
+    } catch (err) {
+      setMessage("Registration failed ");
     }
   };
 
